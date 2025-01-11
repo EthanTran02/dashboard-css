@@ -64,6 +64,8 @@ body {
     font-family: robotoregular;
 }
 
+
+
 body {
     display: grid;
     grid-template-columns: 20vw 1fr;
@@ -77,23 +79,28 @@ body {
 
 .header {
     grid-area: header;
-    border: 1px solid black;
 }
 
 .sidebar {
     grid-area: sidebar;
-    border: 1px solid black;
+    background-color: #1992D4;
+    color: #FFFFFF;
 }
 
 .content {
     grid-area: content;
-    border: 1px solid black;
 }
+
 
 /* HEADER */
 
 .header {
     padding: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.121);
+}
+
+.header p {
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .header .flex {
@@ -109,23 +116,26 @@ body {
 .flex:nth-child(2) .icon {
     width: 30px;
     height: 30px;
-    border: 1px solid black;
-    border-radius: 50%;
 }
 
 button {
-    padding: 4px 20px;
-    border: 1px solid black;
+    padding: 8px 24px;
     border-radius: 20px;
     margin-left: 30px;
     width: 100px;
+    border: 0;
+    background-color: #1992D4;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .user-image {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 1px solid black;
     margin-right: 12px;
 }
 
@@ -147,10 +157,33 @@ button {
 input {
     width: 500px;
     height: 30px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.607);
+    border-radius: 20px;
+    border: 0;
     padding-left: 12px;
+    background-color: #E2E8F0;
 }
+
+input:focus {
+    outline: none;
+    border: 2px solid hsla(0, 0%, 0%, 0.4);
+}
+
+.search-bar {
+    display: flex;
+}
+
+.header .icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.user-image {
+    background-image: url(asset/portrait\ \ 2.avif);
+    background-size: cover;
+}
+
 
 /* SIDE BAR */
 
@@ -170,10 +203,13 @@ input {
     margin-left: 12px;
 }
 
+.sidebar > div p:hover {
+    cursor: pointer;
+}
+
 .links .icon {
     width: 30px;
     height: 30px;
-    border: 1px solid black;
     border-radius: 50%;
 }
 
@@ -193,7 +229,8 @@ input {
     grid-template-columns: 70% 30%;
     grid-template-areas: 
             "cards anoucement-trending";
-    gap: 30px
+    gap: 30px;
+    background-color: #E2E8F0;
 }
 
 .content > div {
@@ -217,19 +254,22 @@ input {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
-    gap: 15px;  
+    gap: 24px;  
 }
 
 .cards > div {
-    border: 1px solid black;
-    padding: 30px 30px 100px 30px;
+    padding: 30px 30px 120px 30px;
+    background-color: white;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 
 .cards > div {
     position: relative;
+    overflow: hidden;
 }
 
-.cards > div > div {
+.cards > div > div:not(div[class="decor"]) {
     position: absolute;
     display: flex;
     bottom: 30px;
@@ -240,10 +280,24 @@ input {
 .cards > div > div div {
     width: 25px;
     height: 25px;
-    border-radius: 50%;
-    border: 1px solid black;
 }
 
+.cards > div > div div:hover {
+    cursor: pointer;
+}
+
+.cards > div > p {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.decor {
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    background-color: #F0B429;
+    left: 0;
+    bottom: 0;
+}
 
 /* right side */
 
@@ -256,25 +310,28 @@ input {
 .anouncement,
 .trending {
     flex: 0 1 auto;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     height: auto;
+    background-color: #FFFFFF;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 
 .anouncement div {
     flex: 1;
-    padding: 12px;
+    padding: 16px;
     justify-content: space-between;
 }
 
 .anouncement div:not(div:last-child) {
     padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.237);
 }
 
-.anouncement div:not(div:last-child) {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.237);
+.anouncement p {
+    color: rgba(0, 0, 0, 0.7);
 }
 
 
@@ -292,8 +349,6 @@ input {
     margin-bottom: 0;
 }
 
-
-
 .trending div div + div {
     display: flex;
     flex-direction: column;
@@ -306,11 +361,11 @@ input {
 }
 
 .trending > div:first-child {
-    padding-top: 12px;
+    padding-top: 20px;
 }
 
 .trending > div:last-child {
-    padding-bottom: 12px;
+    padding-bottom: 20px;
 }
 
 .trending > div p:first-child {
@@ -326,3 +381,88 @@ input {
     margin: 0 !important;
 }
 
+.trending > div > div:last-child p:last-child {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+/*-- ADDINNG ICON --*/
+
+.home {
+    background-image: url(asset/home.svg);
+    filter: invert(100%);
+}
+
+.profile {
+    background-image: url(asset/account.svg);
+    filter: invert(100%);
+}
+
+.messages {
+    background-image: url(asset/message.svg);
+    filter: invert(100%);
+}
+
+.history {
+    background-image: url(asset/clock-time-eight.svg);
+    filter: invert(100%);
+}
+
+.comunities {
+    background-image: url(asset/account-group.svg);
+    filter: invert(100%);
+}
+
+.setting {
+    background-image: url(asset/cog.svg);
+    filter: invert(100%);
+}
+
+.support {
+    background-image: url(asset/chat-question.svg);
+    filter: invert(100%);
+}
+
+.privacy {
+    background-image: url(asset/shield-check.svg);
+    filter: invert(100%);
+}
+
+.bell {
+    background-image: url(asset/bell-outline.svg);
+}
+
+.search {
+    background-image: url(asset/magnify.svg);
+}
+
+
+.star {
+    background-image: url(asset/star-outline.svg);
+}
+
+.eyes {
+    background-image: url(asset/eye-plus-outline.svg);
+}
+
+.share {
+    background-image: url(asset/share-variant-outline.svg);
+}
+
+
+.person1 {
+    background-image: url(asset/person1.avif);
+}
+
+.person2 {
+    background-image: url(asset/person2.avif);
+}
+
+.person3 {
+    background-image: url(asset/person5.avif);
+}
+
+.person4 {
+    background-image: url(asset/person6.avif);
+}
