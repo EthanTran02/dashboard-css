@@ -295,8 +295,8 @@ input:focus {
     height: 100%;
     width: 5px;
     background-color: #F0B429;
-    left: 0;
-    bottom: 0;
+    left: 0%;
+    bottom: 0%;
 }
 
 /* right side */
