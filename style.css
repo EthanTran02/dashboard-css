@@ -106,6 +106,13 @@ body {
     align-items: center;
 }
 
+.flex:nth-child(2) .icon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
 button {
     padding: 4px 20px;
     border: 1px solid black;
@@ -125,7 +132,7 @@ button {
 .flex:first-child .user-image {
     width: 35px;
     height: 35px;
-    margin: 0 20px 0;
+    margin: 0 28px 0;
 }
 
 .user-info {
@@ -147,19 +154,34 @@ input {
 
 /* SIDE BAR */
 
-.sidebar div {
+.sidebar > div {
     margin: 30px;
+    margin-bottom: 50px;
 }
 
-.sidebar div:first-child {
+.sidebar > div:first-child {
     font-weight: bold;
     font-size: 32px;
 }
 
-.sidebar div p {
-    font-style: 28px;
+.sidebar > div p {
+    font-size: 20px;
     font-weight: 600;
-    padding-bottom: 8px;
+    margin-left: 12px;
+}
+
+.links .icon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.links > div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
 
@@ -186,6 +208,7 @@ input {
 .right-side p:first-child,
 .trending-p {
     margin-bottom: 12px;
+    font-weight: bold;
 }
 
 /* cards */
@@ -201,6 +224,26 @@ input {
     border: 1px solid black;
     padding: 30px 30px 100px 30px;
 }
+
+.cards > div {
+    position: relative;
+}
+
+.cards > div > div {
+    position: absolute;
+    display: flex;
+    bottom: 30px;
+    left: 220px;
+    gap: 20px;
+}
+
+.cards > div > div div {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
 
 /* right side */
 
@@ -227,6 +270,10 @@ input {
 }
 
 .anouncement div:not(div:last-child) {
+    padding-bottom: 30px;
+}
+
+.anouncement div:not(div:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.237);
 }
 
@@ -235,14 +282,17 @@ input {
     margin: 0;
 }
 
-.trending div {
+.trending > div {
     display: flex;
     align-items: center;
+    margin-bottom: 24px;
 }
 
-.trending div:not(div:last-child) {
-    margin-bottom: 12px;
+.trending > div:last-child {
+    margin-bottom: 0;
 }
+
+
 
 .trending div div + div {
     display: flex;
@@ -265,6 +315,7 @@ input {
 
 .trending > div p:first-child {
     align-self: flex-start;
+    font-weight: bold;
 }
 
 .trending > div .user-image {
